@@ -1,5 +1,4 @@
 import express from 'express';
-import cloudinary from 'cloudinary';
 import * as dotenv from 'dotenv';
 import cors from 'cors';
 import listEndpoints from 'express-list-endpoints';
@@ -15,14 +14,6 @@ app.use(express.json({ limit: '50mb' }));
 
 app.use('/api/v1/post', postRoutes);
 app.use('/api/v1/dalle', dalleRoutes);
-
-// Configure Cloudinary
-cloudinary.config({
-  CLOUDINARY_CLOUD_NAME: 'dty0wscz8',
-  CLOUDINARY_API_KEY: '863362814988132',
-  CLOUDINARY_API_SECRET: 'rIf-Bh9dg3SzabMhXL-FU7NrW_o',
-  secure: true,
-});
 
 app.get('/', async (req, res) => {
   res.status(200).json({
